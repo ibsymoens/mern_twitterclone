@@ -1,0 +1,7 @@
+/client/build
+node_modules
+.env
+upload_tweetImages
+upload_userImages
+__test
+notes

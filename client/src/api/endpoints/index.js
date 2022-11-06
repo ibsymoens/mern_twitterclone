@@ -1,0 +1,13 @@
+export const SIGN_UP="/users/signup";
+export const SIGN_IN="/users/signin";
+export const SIGN_IN_WITH_GOOGLE="/users/signinwithgoogle";
+export const SEND_VERIFICATION="/users/verification";
+export const VERIFY_EMAIL="/users/verifyemail";
+export const VERIFY_VERIFICATION_CODE="/users/verifycode";
+export const GET_USER_INFO="/users/userInfo";
+export const GET_USER_SUGGEST_TO_FOLLOW="/users/suggesttofollow";
+export const TWEET="/tweets/tweet";
+export const RETWEET="/tweets/retweet";
+export const LIKE_TWEET="tweets/like";
+export const FETCH_TWEETS="/tweets/fetchTweets";
+export const DELETE_TWEET="/tweets/delete";
