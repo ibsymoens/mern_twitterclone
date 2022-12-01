@@ -8,7 +8,7 @@ import { Box, Typography, TextField, InputAdornment, Button, IconButton, Alert }
 
 const initialState = {email: "", password: ""};
 
-const Signin = () => {
+const Signin = ({ setLoading }) => {
     const [userCreds, setUserCreds] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
     const [errMsg, setErrMsg] = useState("");
@@ -17,9 +17,16 @@ const Signin = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         ApiRequests.signin(userCreds)
-                   .then(res => dispatch(signin(res)))
-                   .catch(err => setErrMsg(err.response.data.message));
+                   .then(res => {
+                        dispatch(signin(res));
+                        setLoading(false);
+                   })
+                   .catch(err => {
+                        setErrMsg(err.response.data.message);
+                        setLoading(false);
+                   });
     }
 
     const toggleVisibility = () => {

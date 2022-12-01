@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Signup, Signin } from "./";
+import Loading from "../ui/Loading";
 import GoogleLogin from "../../lib/googleLogin";
 import { theme } from "../../assets/styles/muistyles";
 import { Typography, Button, Dialog, Box, ThemeProvider } from '@mui/material';
@@ -9,7 +10,10 @@ import { Twitter as TwitterIcon, Apple as AppleIcon } from '@mui/icons-material'
 const LandingForm = () => {
     const [showSignupDlg, setShowSignupDlg] = useState(false);
     const [showSigninDlg, setShowSigninDlg] = useState(false);
+    const [loading, setLoading] = useState(false);
     
+    if(loading) return <Loading />
+
     return (
         <React.Fragment>
             <ThemeProvider theme={theme}>
@@ -75,7 +79,7 @@ const LandingForm = () => {
                         <Signup setShowSignupDlg={setShowSignupDlg} showDlg={showSignupDlg} />
                     </Dialog>
                     <Dialog open={showSigninDlg} onClose={() => setShowSigninDlg(!showSigninDlg)}>
-                        <Signin showDlg={showSigninDlg} />
+                        <Signin showDlg={showSigninDlg} setLoading={setLoading} />
                     </Dialog>
                 </Box>
             </ThemeProvider>
